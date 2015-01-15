@@ -1,0 +1,37 @@
+<%
+  var ads = [
+    {
+      href: 'https://alinode.aliyun.com/?ref=cnode',
+      label: 'alinode',
+      img_src: '//dn-cnode.qbox.me/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_',
+    },
+    {
+      href: 'http://www.ucloud.cn/site/active/gift.html?utm_source=cnodejs&utm_medium=content_pic_pc&utm_campaign=multicloud&utm_content=gift&ytag=cnodejs',
+      label: 'ucloud-banner',
+      img_src: '//dn-cnode.qbox.me/FgQS-GQDfqwAD_v0NuhyYUOUk5MG',
+    },
+    {
+      href: 'http://www.tingyun.com/tingyun_server.html',
+      label: 'tingyun',
+      img_src: '//dn-cnode.qbox.me/FvGk14CRylsdmV2OhA2J63mqdB6-',
+    },
+  ];
+
+    var randomNum = (new Date()).getMinutes() % ads.length;
+
+    ads = ads.slice(randomNum).concat(ads.slice(0, randomNum));
+%>
+<div class='panel'>
+  <div class='inner ads'>
+
+    <% ads.forEach(function (adObj, idx) { %>
+      <% if (idx !== 0) { %>
+        <div class="sep10"></div>
+      <% } %>
+      <a href="<%-adObj.href%>" target="_blank" class="banner sponsor_outlink"
+    data-label="<%=adObj.label%>">
+        <img src="<%- staticFile(adObj.img_src) %>">
+      </a>
+    <% }) %>
+  </div>
+</div>
