@@ -90,9 +90,9 @@ describe('test/controllers/github.test.js', function () {
 
   describe('post /auth/github/create', function () {
     before(function () {
-      var displayName = 'alsotang' + +new Date();
-      var username = 'alsotang' + +new Date();
-      var email = 'alsotang@gmail.com' + +new Date();
+      var displayName = 'ifengkou' + +new Date();
+      var username = 'ifengkou' + +new Date();
+      var email = 'ifengkou@gmail.com' + +new Date();
       app.post('/auth/github/test_create', function (req, res, next) {
         req.session.profile = {
           displayName: displayName,
@@ -134,7 +134,7 @@ describe('test/controllers/github.test.js', function () {
           if (err) {
             return done(err);
           }
-          res.text.should.match(/您 GitHub 账号的.*与之前在 CNodejs 注册的.*重复了/);
+          res.text.should.match(/您 GitHub 账号的.*与之前在 ClickHouse社区 注册的.*重复了/);
           done();
         });
     });

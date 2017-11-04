@@ -13,7 +13,7 @@ exports.callback = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    // 当用户已经是 cnode 用户时，通过 github 登陆将会更新他的资料
+    // 当用户已经是 clickhouseclub 用户时，通过 github 登陆将会更新他的资料
     if (user) {
       user.githubUsername = profile.username;
       user.githubId = profile.id;
@@ -33,7 +33,7 @@ exports.callback = function (req, res, next) {
             }
             if (err.message.indexOf('loginname') !== -1) {
               return res.status(500)
-                .send('您 GitHub 账号的用户名与之前在 CNodejs 注册的用户名重复了');
+                .send('您 GitHub 账号的用户名与之前在 ClickHouse社区 注册的用户名重复了');
             }
           }
           return next(err);
@@ -90,7 +90,7 @@ exports.create = function (req, res, next) {
           }
           if (err.message.indexOf('loginname') !== -1) {
             return res.status(500)
-              .send('您 GitHub 账号的用户名与之前在 CNodejs 注册的用户名重复了');
+              .send('您 GitHub 账号的用户名与之前在 ClickHouse社区 注册的用户名重复了');
           }
         }
         return next(err);
