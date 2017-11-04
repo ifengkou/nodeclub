@@ -18,7 +18,7 @@ ClickHouseClub
 ## 介绍
 
 ClickHouseClub 是使用 **Node.js** 和 **MongoDB** 开发的社区系统，界面优雅，功能丰富，小巧迅速，
-已在Node.js 中文技术社区 [CNode(http://cnodejs.org)](http://cnodejs.org) & ClickHouse 中文技术社区 [CNode(http://www.clickhouse.com.cn)](http://www.clickhouse.com.cn) 得到应用，但你完全可以用它搭建自己的社区。
+已在Node.js 中文技术社区 [CNode(http://cnodejs.org)](http://cnodejs.org) & ClickHouse 中文技术社区 [ClickHouseClub(http://www.clickhouse.com.cn)](http://www.clickhouse.com.cn) 得到应用，但你完全可以用它搭建自己的社区。
 
 ## 安装部署
 
