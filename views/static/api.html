@@ -11,7 +11,7 @@
         <%- markdown(multiline(function () {
 /*
 
-以下 api 路径均以 **https://cnodejs.org/api/v1** 为前缀
+以下 api 路径均以 **http://www.clickhouse.com.cn/api/v1** 为前缀
 
 ### 主题
 
@@ -33,7 +33,7 @@
 * mdrender `String` 当为 `false` 时，不渲染。默认为 `true`，渲染出现的所有 markdown 格式文本。
 * accesstoken `String` 当需要知道一个主题是否被特定用户收藏以及对应评论是否被特定用户点赞时，才需要带此参数。会影响返回值中的 `is_collect` 以及 `replies` 列表中的 `is_uped` 值。
 
-示例：[/api/v1/topic/5433d5e4e737cbe96dcef312](/api/v1/topic/5433d5e4e737cbe96dcef312)
+示例：[/api/v1/topic/59fd13d9de213a914309953b](/api/v1/topic/59fd13d9de213a914309953b)
 
 #### post /topics 新建主题
 
@@ -47,7 +47,7 @@
 返回值示例
 
 ```js
-{success: true, topic_id: '5433d5e4e737cbe96dcef312'}
+{success: true, topic_id: '59fd13d9de213a914309953b'}
 ```
 
 #### post /topics/update 编辑主题
@@ -63,7 +63,7 @@
 返回值示例
 
 ```js
-{success: true, topic_id: '5433d5e4e737cbe96dcef312'}
+{success: true, topic_id: '59fd13d9de213a914309953b'}
 ```
 
 
@@ -96,7 +96,7 @@
 ```
 #### get /topic_collect/:loginname 用户所收藏的主题
 
-示例：[/api/v1/topic_collect/alsotang](/api/v1/topic_collect/alsotang)
+示例：[/api/v1/topic_collect/ifengkou](/api/v1/topic_collect/ifengkou)
 
 
 ### 评论
@@ -112,7 +112,7 @@
 返回值示例
 
 ```js
-{success: true, reply_id: '5433d5e4e737cbe96dcef312'}
+{success: true, reply_id: '59fd13d9de213a914309953b'}
 ```
 
 #### post /reply/:reply_id/ups 为评论点赞
@@ -133,7 +133,7 @@
 
 #### get /user/:loginname 用户详情
 
-示例：[/api/v1/user/alsotang](/api/v1/user/alsotang)
+示例：[/api/v1/user/ifengkou](/api/v1/user/ifengkou)
 
 #### post /accesstoken 验证 accessToken 的正确性
 
@@ -183,8 +183,8 @@
         type: "at",
         has_read: false,
         author: {
-          loginname: "alsotang",
-          avatar_url: "https://avatars.githubusercontent.com/u/1147375?v=2"
+          loginname: "ifengkou",
+          avatar_url: "https://avatars1.githubusercontent.com/u/10276180?v=4&s=120"
         },
         topic: {
           id: "542d6ecb9ecb3db94b2b3d0f",
@@ -193,9 +193,9 @@
         },
         reply: {
           id: "543fb7abae523bbc80412b24",
-          content: "[@alsotang](/user/alsotang) 哈哈",
+          content: "[@ifengkou](/user/ifengkou) 哈哈",
           ups: [ ],
-          create_at: "2014-10-16T12:18:51.566Z"
+          create_at: "2017-10-16T12:18:51.566Z"
           }
         },
     ...

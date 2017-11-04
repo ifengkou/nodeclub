@@ -90,7 +90,7 @@
             </a>
         </li>
         <% } %>
-        <li><a href='/getstart'>新手入门</a></li>
+        <li><a href='/getstart'>资料库</a></li>
         <li><a href='/api'>API</a></li>
         <%
         var site_navs = config.site_navs || [];
@@ -126,7 +126,7 @@
     <div class="links">
       <a class='dark' href='/rss'>RSS</a>
       |
-      <a class='dark' href='https://github.com/cnodejs/nodeclub/'>源码地址</a>
+      <a class='dark' href='https://github.com/ifengkou/clickhouseclub'>源码地址</a>
     </div>
 
     <%- partial('./_sponsors') %>
@@ -151,6 +151,44 @@
 <% if (config.cnzz_tracker_id) { %>
 <div style="display:none;">
   <script src="//s95.cnzz.com/z_stat.php?id=<%- config.cnzz_tracker_id %>&web_id=<%- config.cnzz_tracker_id %>" language="JavaScript"></script>
+</div>
+<% } %>
+
+<% if (config.ark_tracker_id) { %>
+<div style="display:none;">
+
+  <script>
+      window.fz = window.fz || [];
+      (function() {
+          window.fz.methods = 'DEBUG init open pageTAG setUInfo setPID delUInfo event openAPP'.split(' ');
+          window.fz.factory = function(b) {
+              return function() {
+                  var a = Array.prototype.slice.call(arguments);
+                  a.unshift(b);
+                  window.fz.push(a);
+                  return window.fz;
+              }
+          };
+          for (var i = 0; i < fz.methods.length; i++) {
+              var key = window.fz.methods[i];
+              fz[key] = window.fz.factory(key);
+          }
+          var date = new Date();
+          var time = new String(date.getFullYear()) + new String(date.getMonth() + 1) + new String(date.getDate());
+
+          var d = document,
+              c = d.createElement('script'),
+              n = d.getElementsByTagName('script')[0];
+          c.type = 'text/javascript';
+          c.async = true;
+          c.defer = true;
+          c.id = 'devSDK';
+          c.src = (location.protocol == 'http:' ?'http://':'https://')+'ark.analysys.cn/sdk/AnalysysFangzhou_JS_SDK.min.js?v=' + time
+          n.parentNode.insertBefore(c, n);
+          fz.init("<%- config.ark_tracker_id %>") //AppKey为添加应用后获取到的Appkey;
+      })();
+  </script>
+
 </div>
 <% } %>
 
