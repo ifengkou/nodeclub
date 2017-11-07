@@ -1,10 +1,10 @@
 {
-  "name": "nodeclub",
+  "name": "clickhouseclub",
   "version": "2.1.1",
   "private": true,
   "main": "app.js",
   "description": "A Node.js bbs using MongoDB",
-  "repository": "https://github.com/cnodejs/nodeclub",
+  "repository": "https://github.com/ifengkou/clickhouseclub",
   "dependencies": {
     "async": "1.5.2",
     "bcryptjs": "2.3.0",
