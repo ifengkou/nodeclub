@@ -185,6 +185,7 @@
           c.id = 'devSDK';
           c.src = (location.protocol == 'http:' ?'http://':'https://')+'ark.analysys.cn/sdk/AnalysysFangzhou_JS_SDK.min.js?v=' + time
           n.parentNode.insertBefore(c, n);
+          //fz.DEBUG=true;
           fz.init("<%- config.ark_tracker_id %>") //AppKey为添加应用后获取到的Appkey;
       })();
   </script>

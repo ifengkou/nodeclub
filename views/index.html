@@ -7,7 +7,7 @@
         var value = pair[0];
         var text = pair[1]; %>
         <a href="<%= value ? '/?tab=' + value : '/' %>"
-          class="topic-tab <%= value === tab ? 'current-tab' : '' %>"><%= text %></a>
+          class="topic-tab <%= value === tab ? 'current-tab' : '' %>" onclick="trackTabEventFn(this.href)"><%= text %></a>
       <% }) %>
     </div>
     <% if (typeof(topics) !== 'undefined' && topics.length > 0) { %>
@@ -26,3 +26,9 @@
     <% } %>
   </div>
 </div>
+<script>
+    function trackTabEventFn(title){
+        ga('send', 'event', 'tab','open',title);
+        fz.event({EI:"openTab",EPD:{"TabUrl":title}})
+    }
+</script>
