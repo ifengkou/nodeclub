@@ -7,7 +7,7 @@ var User       = require('../proxy').User;
 var Topic      = require('../proxy').Topic;
 var Reply      = require('../proxy').Reply;
 var config     = require('../config');
-
+var tc         = require('text-censor');
 /**
  * 添加回复
  */
@@ -36,6 +36,12 @@ exports.add = function (req, res, next) {
     }
     ep.emit('topic', topic);
   }));
+
+  //增加 敏感词过滤
+  tc.filter(content,function(err, censored){
+    //console.log(censored) // 'Ur so ***y babe!'
+      content = censored;
+  })
 
   ep.all('topic', function (topic) {
     User.getUserById(topic.author_id, ep.done('topic_author'));

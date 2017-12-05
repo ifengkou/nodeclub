@@ -19,7 +19,7 @@ var config       = require('../config');
 var _            = require('lodash');
 var cache        = require('../common/cache');
 var logger = require('../common/logger')
-
+var tc = require('text-censor')
 /**
  * Topic page
  *
@@ -139,6 +139,11 @@ exports.put = function (req, res, next) {
   } else if (content === '') {
     editError = '内容不可为空';
   }
+  // 增加敏感词 过滤
+    tc.filter(content,function(err, censored){
+        //console.log(censored) // 'Ur so ***y babe!'
+        content = censored;
+    })
   // END 验证
 
   if (editError) {
@@ -225,6 +230,12 @@ exports.update = function (req, res, next) {
       } else if (!tab) {
         editError = '必须选择一个版块。';
       }
+
+        // 增加敏感词 过滤
+        tc.filter(content,function(err, censored){
+            //console.log(censored) // 'Ur so ***y babe!'
+            content = censored;
+        })
       // END 验证
 
       if (editError) {
