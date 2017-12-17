@@ -38,10 +38,10 @@ exports.add = function (req, res, next) {
   }));
 
   //增加 敏感词过滤
-  tc.filter(content,function(err, censored){
+  //tc.filter(content,function(err, censored){
     //console.log(censored) // 'Ur so ***y babe!'
-      content = censored;
-  })
+  //    content = censored;
+  //})
 
   ep.all('topic', function (topic) {
     User.getUserById(topic.author_id, ep.done('topic_author'));
