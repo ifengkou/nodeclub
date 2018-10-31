@@ -140,10 +140,10 @@ exports.put = function (req, res, next) {
     editError = '内容不可为空';
   }
   // 增加敏感词 过滤
-  //  tc.filter(content,function(err, censored){
-  //      //console.log(censored) // 'Ur so ***y babe!'
-  //      content = censored;
-  //  })
+  tc.filter(content,function(err, censored){
+       //console.log(censored) // 'Ur so ***y babe!'
+       content = censored;
+  })
   // END 验证
 
   if (editError) {
@@ -232,10 +232,10 @@ exports.update = function (req, res, next) {
       }
 
         // 增加敏感词 过滤
-        //tc.filter(content,function(err, censored){
-            //console.log(censored) // 'Ur so ***y babe!'
-        //    content = censored;
-        //})
+      tc.filter(content,function(err, censored){
+          //console.log(censored) // 'Ur so ***y babe!'
+          content = censored;
+      })
       // END 验证
 
       if (editError) {
