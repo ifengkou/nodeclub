@@ -18,6 +18,6 @@ with open(file_new,'w') as w:
             w.write(keyword+"\n") 
         else:
             print(keyword)
-            w.write(" " + keyword+" \n") 
+            #w.write(" " + keyword+" \n") 
 
 shutil.move(file_new, file_origin)
