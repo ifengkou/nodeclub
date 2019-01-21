@@ -205,6 +205,7 @@ exports.showEdit = function (req, res, next) {
 };
 
 exports.update = function (req, res, next) {
+  console.log('topic 更新')
   var topic_id = req.params.tid;
   var title    = req.body.title;
   var tab      = req.body.tab;
