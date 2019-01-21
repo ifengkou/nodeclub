@@ -215,7 +215,9 @@ exports.update = function (req, res, next) {
       res.render404('此话题不存在或已被删除。');
       return;
     }
-
+    console.log(topic.author_id)
+    console.log(req.session.user._id)
+    console.log(req.session.user.is_admin)
     if (topic.author_id.equals(req.session.user._id) || req.session.user.is_admin) {
       title   = validator.trim(title);
       tab     = validator.trim(tab);
@@ -230,7 +232,7 @@ exports.update = function (req, res, next) {
       } else if (!tab) {
         editError = '必须选择一个版块。';
       }
-
+      console.log('topic 更新')
         // 增加敏感词 过滤
       tc.filter(content,function(err, censored){
           //console.log(censored) // 'Ur so ***y babe!'
@@ -256,6 +258,7 @@ exports.update = function (req, res, next) {
 
       topic.save(function (err) {
         if (err) {
+          console.error('topic 更新失败',err)
           return next(err);
         }
         //发送at消息
@@ -265,6 +268,7 @@ exports.update = function (req, res, next) {
 
       });
     } else {
+      console.log('不是原作者或者管理员，无权限')
       res.renderError('对不起，你不能编辑此话题。', 403);
     }
   });
