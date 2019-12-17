@@ -29,7 +29,7 @@ exports.index = function (req, res, next) {
 
   // 取主题
   var query = {
-    create_at: {$gte: moment().subtract(1, 'years').toDate()}
+    //create_at: {$gte: moment().subtract(1, 'years').toDate()}
   };
   if (!tab || tab === 'all') {
     query.tab = {$nin: ['job', 'dev']}
