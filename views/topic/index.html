@@ -49,7 +49,10 @@
       <ul class="breadcrumb">
         <li><a href="/">主页</a><span class="divider">/</span></li>
         <% if (topic.tab) { %>
-          <li ><a href="/?tab=<%= topic.tab %>"><%= topic.tabName %></a></li>
+          <li ><a href="/?tab=<%= topic.tab %>"><%= topic.tabName %></a><span class="divider">/</span></li>
+        <%}%>
+        <% if (topic.title) { %>
+          <li class='active'><%= topic.title %></li>
         <%}%>
       </ul>
     </div>
