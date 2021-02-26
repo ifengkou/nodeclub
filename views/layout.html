@@ -100,6 +100,7 @@
       <ul class='nav pull-right'>
         <li><a href='/'>首页</a></li>
         <% if (current_user){ %>
+        <li><a href='/topic/create' rel="nofollow">发布话题</a></li>
         <li>
             <a href='/my/messages' rel="nofollow">
               <% if (current_user.messages_count) { %>
@@ -109,8 +110,10 @@
             </a>
         </li>
         <% } %>
-        <!--<li><a href='/getstart'>资料库</a></li>-->
-        <li><a href='/api'>API</a></li>
+        <!--
+          <li><a href='/getstart'>资料库</a></li>
+          <li><a href='/api'>API</a></li>
+        -->
         <%
         var site_navs = config.site_navs || [];
         for (var i = 0, l = site_navs.length; i < l; i++) {
