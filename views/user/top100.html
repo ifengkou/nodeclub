@@ -28,3 +28,10 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+    $(".mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
+</script>

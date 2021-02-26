@@ -35,10 +35,23 @@
           <div class='controls'>
             <input class='input-xlarge readonly' id='email' name='email' size='30' type='text'
                    readonly='true' value="<%= email %>"/>
-
-            <p>同时决定了 Gravatar 头像</p>
+            
           </div>
         </div>
+
+        <div class='control-group'>
+          <label class='control-label' for='mavatar'>头像</label>
+
+          <div class='controls'>
+            <input class='input-xlarge' id='mavatar' name='mavatar' 
+              size='30' type='text' value="<%= mavatar %>"
+              oninput="getNewIdenticon(this.value)" placeholder="输入任意字符生成卡通头像"/>
+            <div id="my_mavatar" style="width: 48px;height: 48px;display: inline-block;">
+              <div class="ma-spinner"><div></div><div></div></div>
+            </div>
+          </div>
+        </div>
+
         <div class='control-group'>
           <label class='control-label' for='url'>个人网站</label>
 
@@ -145,4 +158,21 @@
     height: 200,
   });
   // END qrcode generate
+  var my_mavatar = document.getElementById('my_mavatar').value;
+  if(my_mavatar){
+    var iSVG = multiavatar(my_mavatar);
+    document.getElementById('my_mavatar').innerHTML = iSVG;
+  }
+  function getNewIdenticon(string) {
+        if (string == '') {
+          var loaderHtml = '<div class="ma-spinner"><div></div><div></div></div>';
+          document.getElementById('my_mavatar').innerHTML = loaderHtml;
+        }
+        else {
+          var iSVG = multiavatar(string);
+          document.getElementById('my_mavatar').innerHTML = iSVG;
+        }
+  }
+
+  
 </script>

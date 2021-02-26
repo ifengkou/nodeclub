@@ -1,9 +1,13 @@
 <div class='cell'>
 
   <a class="user_avatar pull-left" href="/user/<%= topic.author.loginname %>">
-    <img src="<%= proxy(topic.author.avatar_url) %>"
-         title="<%= topic.author.loginname %>"
-            />
+    <% if (topic.author.mavatar) {%>
+      <span class="mavatar_svg" _attr="<%= topic.author.mavatar %>"></span>
+    <% } else { %>
+      <img src="<%= proxy(topic.author.avatar_url) %>"
+        title="<%= topic.author.loginname %>"
+         />
+    <% } %>
   </a>
 
   <span class="reply_count pull-left">
@@ -18,7 +22,11 @@
 
   <% if (topic.reply && topic.reply.author) {%>
   <a class='last_time pull-right' href="/topic/<%= topic._id %><%- '#' + topic.reply._id %>">
-    <img class="user_small_avatar" src="<%= proxy(topic.reply.author.avatar_url) %>">
+    <% if (topic.reply.author.mavatar) {%>
+      <span class="small_mavatar_svg" _attr="<%= topic.reply.author.mavatar %>"></span>
+    <% } else { %>
+      <img class="user_small_avatar" src="<%= proxy(topic.reply.author.avatar_url) %>">
+    <% } %>
     <span class="last_active_time"><%= topic.reply.create_at_ago() %></span>
   </a>
   <% } %>
@@ -39,7 +47,28 @@
 </div>
 <script>
     function trackTopicEventFn(title){
-        ga('send', 'event', 'topic_detail','open',title);
-        fz.event({EI:"openTopic",EPD:{"Title":title}})
+        //ga('send', 'event', 'topic_detail','open',title);
+        //fz.event({EI:"openTopic",EPD:{"Title":title}})
     }
+    function getNewIdenticon(string) {
+        if (string == '') {
+          var loaderHtml = '<div class="ma-spinner"><div></div><div></div></div>';
+          document.getElementById('my_mavatar').innerHTML = loaderHtml;
+        }
+        else {
+          var iSVG = multiavatar(string);
+          document.getElementById('my_mavatar').innerHTML = iSVG;
+        }
+    }
+
+    $(".mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
+    $(".small_mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
 </script>

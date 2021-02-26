@@ -1,7 +1,11 @@
 <div class='user_card'>
   <div>
     <a class='user_avatar' href="/user/<%= user.loginname %>">
-      <img src="<%= proxy(user.avatar_url) %>" title="<%= user.loginname %>"/>
+      <% if (user.mavatar) {%>
+        <span class="mavatar_svg" _attr="<%= user.mavatar %>"></span>
+      <% } else { %>
+        <img src="<%= proxy(user.avatar_url) %>" title="<%= user.loginname %>"/>
+      <% } %>
     </a>
     <span class='user_name'><a class='dark' href="/user/<%= user.loginname %>"><%= user.loginname %></a></span>
 
@@ -48,5 +52,15 @@
       }, 'json');
     });
   });
+
+  
+
 </script>
 <% } %>
+<script>
+  $(".user_card .mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
+</script>

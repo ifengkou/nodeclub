@@ -9,7 +9,12 @@
     </div>
     <div class='inner userinfo'>
       <div class='user_big_avatar'>
-        <img src="<%= proxy(user.avatar_url) %>" class="user_avatar" title="<%= user.loginname %>"/>
+        <% if (user.mavatar) {%>
+          <span class="mavatar_svg" _attr="<%= user.mavatar %>"></span>
+        <% } else { %>
+          <img src="<%= proxy(user.avatar_url) %>" class="user_avatar" title="<%= user.loginname %>"/>
+        <% } %>
+        
       </div>
       <a class='dark'><%= user.loginname %></a>
 
@@ -85,15 +90,18 @@
     <div class='header'>
       <span class='col_fade'>最近创建的话题</span>
     </div>
+    
     <% if (typeof(recent_topics) !== 'undefined' && recent_topics.length > 0) { %>
-    <%- partial('../topic/abstract', { collection: recent_topics, as: 'topic' }) %>
-    <div class='cell more'>
-      <a class='dark' href="/user/<%= user.loginname %>/topics">查看更多»</a>
-    </div>
+      <div class='inner no-padding'>
+        <%- partial('../topic/abstract', { collection: recent_topics, as: 'topic' }) %>
+        <div class='cell more'>
+          <a class='dark' href="/user/<%= user.loginname %>/topics">查看更多»</a>
+        </div>
+      </div>
     <% } else { %>
-    <div class='inner'>
-      <p>无话题</p>
-    </div>
+      <div class='inner'>
+        <p>无话题</p>
+      </div>
     <% } %>
   </div>
 
@@ -102,10 +110,12 @@
       <span class='col_fade'>最近参与的话题</span>
     </div>
     <% if (typeof(recent_replies) !== 'undefined' && recent_replies.length > 0) { %>
-    <%- partial('../topic/abstract', { collection: recent_replies, as: 'topic' }) %>
-    <div class='cell more'>
-      <a class='dark' href="/user/<%= user.loginname %>/replies">查看更多»</a>
-    </div>
+      <div class='inner no-padding'>
+        <%- partial('../topic/abstract', { collection: recent_replies, as: 'topic' }) %>
+        <div class='cell more'>
+          <a class='dark' href="/user/<%= user.loginname %>/replies">查看更多»</a>
+        </div>
+      </div>
     <% } else { %>
     <div class='inner'>
       <p>无话题</p>
@@ -177,3 +187,10 @@
   });
 </script>
 <% } %>
+<script>
+  $(".userinfo .mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
+</script>

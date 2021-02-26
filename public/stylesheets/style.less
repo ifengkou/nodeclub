@@ -329,6 +329,14 @@ a.last_time {
   margin-right: 0.5em;
   border-radius: 3px;
 }
+.last_time .small_mavatar_svg {
+  height: 18px;
+  width: 18px;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  border-radius: 3px;
+  display: inline-block;
+}
 
 .board .floor {
 }
@@ -461,10 +469,12 @@ a.tag_big {
   padding: 1px 2px;
 }
 
-.user_avatar img, .user_big_avatar img {
+.user_avatar img, .user_big_avatar img, .user_avatar .mavatar_svg, .user_big_avatar .mavatar_svg {
   width: 30px;
   height: 30px;
   border-radius: 3px;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 a.user_avatar:hover {
@@ -474,7 +484,7 @@ a.user_avatar:hover {
 .user_card .user_avatar {
   vertical-align: middle;
   margin-right: 0.5em;
-  img {
+  img , .mavatar_svg {
     width: 48px;
     height: 48px;
   }
@@ -492,7 +502,7 @@ a.user_avatar:hover {
   margin-right: 10px;
 }
 
-.user_big_avatar img {
+.user_big_avatar img , .user_big_avatar .mavatar_svg {
   width: 40px;
   height: 40px;
 }
@@ -1308,4 +1318,39 @@ textarea.editor {
 
 .sponsor_outlink:hover {
   text-decoration: none;
+}
+
+
+.ma-spinner {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.ma-spinner div {
+  position: absolute;
+  border: 4px solid #ababab;
+  opacity: 1;
+  border-radius: 50%;
+  animation: ma-spinner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.ma-spinner div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes ma-spinner {
+  0% {
+    top: 23px;
+    left: 23px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 46px;
+    height: 46px;
+    opacity: 0;
+  }
 }

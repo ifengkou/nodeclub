@@ -2,7 +2,11 @@
   <td><b><%= indexInCollection+1 %></b></td>
   <td>
     <a class='user_avatar' href="/user/<%= user.loginname %>">
-      <img src="<%= proxy(user.avatar_url) %>" title="<%= user.loginname %>"/>
+      <% if (user.mavatar) {%>
+        <div class="mavatar_svg" _attr="<%= user.mavatar %>"></div>
+      <% } else { %>
+        <img src="<%= proxy(user.avatar_url) %>" title="<%= user.loginname %>"/>
+      <% } %>
     </a>
     <span class='sp10'></span>
     <a href='/user/<%= user.loginname %>'><%= user.loginname %></a></td>

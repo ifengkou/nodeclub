@@ -513,6 +513,11 @@
       $previewModal.modal('hide');
     }
 
+    $(".reply_area .mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
   })()
   // END 图片预览
 </script>

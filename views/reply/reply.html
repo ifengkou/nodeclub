@@ -3,8 +3,11 @@
     reply_id="<%= reply._id %>" reply_to_id="<%= reply.reply_id || '' %>" id="<%= reply._id %>">
   <div class='author_content'>
     <a href="/user/<%= reply.author.loginname %>" class="user_avatar">
-      <img src="<%= proxy(reply.author.avatar_url) %>" title="<%= reply.author.loginname %>"/></a>
-
+      <% if (reply.author.mavatar) {%>
+        <span class="mavatar_svg" _attr="<%= reply.author.mavatar %>"></span>
+      <% } else { %>
+        <img src="<%= proxy(reply.author.avatar_url) %>" title="<%= reply.author.loginname %>"/></a>
+      <% } %>
     <div class='user_info'>
       <a class='dark reply_author' href="/user/<%= reply.author.loginname %>"><%= reply.author.loginname %></a>
       <a class="reply_time" href="#<%= reply._id %>"><%= indexInCollection + 1 %>楼•<%= reply.create_at_ago()
