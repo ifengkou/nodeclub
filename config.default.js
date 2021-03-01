@@ -122,7 +122,12 @@ var config = {
     ['ask', '问答'],
     ['job', '招聘'],
   ],
-
+  
+  //cf proxy
+  avatar_cf_proxy_enable: true,
+  avatar_cf_proxy_githubcontent: 'github_avatars{}.xxxx.workers.dev',
+  avatar_cf_proxy_gravater: 'gravatar.xxxx.workers.dev',
+  
   // 极光推送
   jpush: {
     appKey: 'YourAccessKeyyyyyyyyyyyy',
