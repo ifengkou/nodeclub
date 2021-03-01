@@ -87,7 +87,7 @@ UserSchema.virtual('avatar_url').get(function () {
   if(config.avatar_cf_proxy_enable && config.avatar_cf_proxy_githubcontent && config.avatar_cf_proxy_gravater){
     url = url.replace('gravatar.com', config.avatar_cf_proxy_gravater);
     if (url.indexOf('githubusercontent') !== -1) {
-      // 0~4，我的cf 只配置4个 avatars.githubusercontent.com 的代理
+      // 0~4，我的cf 只配置5个 avatars.githubusercontent.com 的代理
       var r = _.random(4)
       var git_avatar = config.avatar_cf_proxy_githubcontent.replace('{}',r);
       var reg = new RegExp('avatars[0-9]?.githubusercontent.com')
@@ -98,8 +98,8 @@ UserSchema.virtual('avatar_url').get(function () {
 });
 
 UserSchema.virtual('isAdvanced').get(function () {
-  // 积分高于 700 则认为是高级用户
-  return this.score > 700 || this.is_star;
+  // 积分高于 100 则认为是高级用户
+  return this.score > 100 || this.is_star;
 });
 
 UserSchema.index({loginname: 1}, {unique: true});
