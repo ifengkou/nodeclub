@@ -1,11 +1,20 @@
 User-agent: googlebot-image
 Disallow: /
+
 User-agent: yahoo-mmcrawler
 Disallow: /
+
 User-agent: psbot
 Disallow: /
+
 User-agent: asterias
 Disallow: /
+
 User-agent: *
-Disallow: 
 Disallow: /cgi-bin/
+Disallow: /signup
+Disallow: /signin
+Disallow: /setting
+Disallow: /my/
+Disallow: /topic/create
+Disallow: /users/top100
