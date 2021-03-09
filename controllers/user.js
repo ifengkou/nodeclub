@@ -109,6 +109,7 @@ exports.setting = function (req, res, next) {
       signature: data.signature,
       weibo: data.weibo,
       accessToken: data.accessToken,
+      mavatar: data.mavatar,
     };
     if (isSuccess) {
       data2.success = msg;
@@ -126,7 +127,7 @@ exports.setting = function (req, res, next) {
     var weibo = validator.trim(req.body.weibo);
     var signature = validator.trim(req.body.signature);
     var mavatar = validator.trim(req.body.mavatar);
-    
+
     User.getUserById(req.session.user._id, ep.done(function (user) {
       user.url = url;
       user.location = location;

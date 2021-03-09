@@ -104,12 +104,13 @@ exports.newAndSave = function (name, loginname, pass, email, avatar_url, active,
   user.avatar      = avatar_url;
   user.active      = active || false;
   user.accessToken = uuid.v4();
-
+  user.mavatar     = loginname;
   user.save(callback);
 };
 
 var makeGravatar = function (email) {
-  return 'http://www.gravatar.com/avatar/' + utility.md5(email.toLowerCase()) + '?size=48';
+  //return 'http://www.gravatar.com/avatar/' + utility.md5(email.toLowerCase()) + '?size=48';
+  return null;
 };
 exports.makeGravatar = makeGravatar;
 

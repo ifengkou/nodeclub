@@ -1,7 +1,11 @@
 <div class='user'>
   <div>
     <a href="/user/<%= user.loginname %>">
-      <img class='user_avatar' src="<%= proxy(user.avatar_url) %>" title="<%= user.loginname %>"/>
+      <% if (user.mavatar) {%>
+        <div class="mavatar_svg" _attr="<%= user.mavatar %>"></div>
+      <% } else { %>
+        <img class='user_avatar' src="<%= proxy(user.avatar_url) %>" title="<%= user.loginname %>"/>
+      <% } %>
     </a>
     <span class='user_name'><a class='dark' href="/user/<%= user.loginname %>"><%= user.loginname %></a></span>
 
