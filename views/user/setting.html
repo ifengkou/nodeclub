@@ -43,10 +43,10 @@
           <label class='control-label' for='mavatar'>头像</label>
 
           <div class='controls'>
-            <input class='input-xlarge' id='mavatar' name='mavatar' 
-              size='30' type='text' value="<%= mavatar %>"
+            <input class='input-large' id='mavatar' name='mavatar' 
+              size='30' type='text' value="<%= typeof(mavatar) !== 'undefined' ? mavatar : '' %>"
               oninput="getNewIdenticon(this.value)" placeholder="输入任意字符生成卡通头像"/>
-            <div id="my_mavatar" style="width: 48px;height: 48px;display: inline-block;">
+            <div id="my_mavatar" style="width: 40px;height: 40px;display: inline-block;vertical-align: middle;">
               <div class="ma-spinner"><div></div><div></div></div>
             </div>
           </div>
@@ -158,12 +158,13 @@
     height: 200,
   });
   // END qrcode generate
-  var my_mavatar = document.getElementById('my_mavatar').value;
+  var my_mavatar = document.getElementById('mavatar').value;
   if(my_mavatar){
     var iSVG = multiavatar(my_mavatar);
     document.getElementById('my_mavatar').innerHTML = iSVG;
   }
   function getNewIdenticon(string) {
+        document.getElementById('mavatar').value=string
         if (string == '') {
           var loaderHtml = '<div class="ma-spinner"><div></div><div></div></div>';
           document.getElementById('my_mavatar').innerHTML = loaderHtml;

@@ -125,12 +125,14 @@ exports.setting = function (req, res, next) {
     var location = validator.trim(req.body.location);
     var weibo = validator.trim(req.body.weibo);
     var signature = validator.trim(req.body.signature);
-
+    var mavatar = validator.trim(req.body.mavatar);
+    
     User.getUserById(req.session.user._id, ep.done(function (user) {
       user.url = url;
       user.location = location;
       user.signature = signature;
       user.weibo = weibo;
+      user.mavatar= mavatar;
       user.save(function (err) {
         if (err) {
           return next(err);
