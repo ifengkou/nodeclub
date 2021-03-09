@@ -84,7 +84,7 @@
 </head>
 <body>
 <!-- navbar -->
-<div class='navbar'>
+<nav class='navbar'>
   <div class='navbar-inner'>
     <div class='container'>
       <a class='brand' href='/'>
@@ -139,12 +139,12 @@
       </a>
     </div>
   </div>
-</div>
+</nav>
 <div id='main'>
   <%- body %>
 </div>
 <div id='backtotop'>回到顶部</div>
-<div id='footer'>
+<footer id='footer'>
   <div id='footer_main'>
     <div class="links">
       <a class='dark' href='/rss'>RSS</a>
@@ -155,7 +155,7 @@
     <%- partial('./_sponsors') %>
 
   </div>
-</div>
+</footer>
 <div id="sidebar-mask"></div>
 
 <% if (config.google_tracker_id) { %>

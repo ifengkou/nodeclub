@@ -18,3 +18,4 @@ Disallow: /setting
 Disallow: /my/
 Disallow: /topic/create
 Disallow: /users/top100
+Disallow: /user/*
