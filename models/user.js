@@ -84,14 +84,19 @@ UserSchema.virtual('avatar_url').get(function () {
     url += '&s=120';
   }
 
-  if(config.avatar_cf_proxy_enable && config.avatar_cf_proxy_githubcontent && config.avatar_cf_proxy_gravater){
-    url = url.replace('gravatar.com', config.avatar_cf_proxy_gravater);
+  if(config.avatar_cf_proxy_enable){
     if (url.indexOf('githubusercontent') !== -1) {
-      // 0~4，我的cf 只配置5个 avatars.githubusercontent.com 的代理
-      var r = _.random(4)
-      var git_avatar = config.avatar_cf_proxy_githubcontent.replace('{}',r);
-      var reg = new RegExp('avatars[0-9]?.githubusercontent.com')
-      url = url.replace(reg, git_avatar);
+      if(config.avatar_cf_proxy_github_enable){
+        // 0~3，我的cf 只配置4个 avatars.githubusercontent.com 的代理
+        var r = _.random(3)
+        var git_avatar = config.avatar_cf_proxy_githubcontent.replace('{}',r);
+        var reg = new RegExp('avatars[0-9]?.githubusercontent.com')
+        url = url.replace(reg, git_avatar);
+      }
+    } else if(config.avatar_cf_proxy_gravatar_enable){
+      var r = _.random(1)
+      var gr_avatar = config.avatar_cf_proxy_gravater.replace('{}',r);
+      url = url.replace('gravatar.com', gr_avatar);
     }
   }
   return url;

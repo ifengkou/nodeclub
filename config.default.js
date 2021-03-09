@@ -125,7 +125,9 @@ var config = {
   
   //cf proxy
   avatar_cf_proxy_enable: true,
+  avatar_cf_proxy_github_enable: false,
   avatar_cf_proxy_githubcontent: 'github_avatars{}.xxxx.workers.dev',
+  avatar_cf_proxy_gravatar_enable: true,
   avatar_cf_proxy_gravater: 'gravatar.xxxx.workers.dev',
   
   // 极光推送
