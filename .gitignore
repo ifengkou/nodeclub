@@ -1,4 +1,13 @@
 config.js
+run_demo.sh
+BingSiteAuth.xml
+crontab_config.md
+censortool.py
+censorChinese.py
+ERROR_RECORD.md
+colorwords
+cf_jsproxy.js
+nvm_install.sh
 .cov
 coverage
 node_modules
