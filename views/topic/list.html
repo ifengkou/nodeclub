@@ -40,7 +40,22 @@
   </ul>
 </div>
 <script>
+  function trackTopicEventFn(title){
+      //ga('send', 'event', 'topic_detail','open',title);
+      //fz.event({EI:"openTopic",EPD:{"Title":title}})
+  }
+  
   $(document).ready(function () {
+    $(".mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
+    $(".small_mavatar_svg").each(function(){
+      var m = $(this).attr("_attr");
+      var iSVG = multiavatar(m);
+      $(this).html(iSVG);
+    });
     var $nav = $('.pagination');
     var current_page = $nav.attr('current_page');
     if (current_page) {
