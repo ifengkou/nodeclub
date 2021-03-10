@@ -17,7 +17,7 @@ var Reply = require('./reply');
  * @param {Function} callback 获取消息数量
  */
 exports.getMessagesCount = function (id, callback) {
-  Message.count({master_id: id, has_read: false}, callback);
+  Message.countDocuments({master_id: id, has_read: false}, callback);
 };
 
 
