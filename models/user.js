@@ -94,7 +94,7 @@ UserSchema.virtual('avatar_url').get(function () {
         url = url.replace(reg, git_avatar);
       }
     } else if(config.avatar_cf_proxy_gravatar_enable){
-      var r = _.random(1)
+      var r = _.random(3)
       var gr_avatar = config.avatar_cf_proxy_gravater.replace('{}',r);
       url = url.replace('gravatar.com', gr_avatar);
     }
