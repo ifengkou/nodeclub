@@ -4,7 +4,7 @@
       <% if (user.mavatar) {%>
         <span class="mavatar_svg" _attr="<%= user.mavatar %>"></span>
       <% } else { %>
-        <img src="<%= proxy(user.avatar_url) %>" title="<%= user.loginname %>"/>
+        <img src="<%= proxy(user.avatar_url) %>" alt="avatar" title="<%= user.loginname %>"/>
       <% } %>
     </a>
     <span class='user_name'><a class='dark' href="/user/<%= user.loginname %>"><%= user.loginname %></a></span>
